@@ -10,7 +10,7 @@ import { flatStackData } from '../data/techStack';
   
   <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[minmax(350px,_auto)]">
     
-    <BentoItem class="md:col-span-3 justify-center! gap-4">
+    <BentoItem class="md:col-span-3 justify-center! gap-4" index={0}>
       <h1 class="text-4xl md:text-5xl font-bold text-white">
         Hola! Soy <span class="text-blue-400">Lautaro Rodriguez Brown</span>.
       </h1>
@@ -23,20 +23,20 @@ import { flatStackData } from '../data/techStack';
       </div>
     </BentoItem>
 
-    <BentoItem class="md:col-span-1 flex items-center justify-center">
+    <BentoItem class="md:col-span-1 flex items-center justify-center" index={1}>
       <div class="w-full h-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center overflow-hidden">
         <span class="text-neutral-500 font-bold">FOTO</span>
       </div>
     </BentoItem>
 
-    <BentoItem class="md:col-span-2" title="TravelIA">
+    <BentoItem class="md:col-span-2" title="TravelIA" index={2}>
       <p class="text-neutral-400 mb-4">App de viajes con Inteligencia Artificial que planifica itinerarios personalizados.</p>
       <div class="w-full h-48 bg-neutral-800 rounded-xl overflow-hidden relative group/image">
          <div class="absolute inset-0 bg-blue-900/20 group-hover/image:bg-transparent transition duration-300"></div>
       </div>
     </BentoItem>
 
-    <BentoItem class="md:col-span-2" title="Stack Tecnológico">
+    <BentoItem class="md:col-span-2" title="Stack Tecnológico" index={3}>
       
       <div class="grid grid-cols-4 sm:grid-cols-5 gap-3">
         {flatStackData.map((tech) => (

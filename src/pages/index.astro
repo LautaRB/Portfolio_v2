@@ -1,16 +1,47 @@
 ---
-
+import Layout from '../layouts/BaseLayout.astro';
+import BentoItem from '../components/BentoItem.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Lautaro RB | Portfolio">
+  
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[300px]">
+    
+    <BentoItem class="md:col-span-3 justify-center! gap-4">
+      <h1 class="text-4xl md:text-5xl font-bold text-white">
+        Hola! Soy <span class="text-blue-400">Lautaro Rodriguez Brown</span>.
+      </h1>
+      <p class="text-xl text-neutral-300 text-pretty">
+        Desarrollador de Software enfocado en crear soluciones web rápidas, funcionales y atractivas. 
+      </p>
+      <div class="flex gap-4 mt-4">
+        <button class="bg-blue-600 px-6 py-2 rounded-full font-medium hover:bg-blue-700 transition hover:scale-105">Contactame</button>
+        <button class="bg-neutral-800 px-6 py-2 rounded-full font-medium hover:bg-neutral-700 transition border border-neutral-700 hover:scale-105">Descargar CV</button>
+      </div>
+    </BentoItem>
+
+    <BentoItem class="md:col-span-1 flex items-center justify-center">
+      <div class="w-full h-full bg-linear-to-br from-blue-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center overflow-hidden">
+        <span class="text-neutral-500 font-bold">FOTO</span>
+      </div>
+    </BentoItem>
+
+    <BentoItem class="md:col-span-2" title="TravelIA">
+      <p class="text-neutral-400 mb-4">App de viajes con Inteligencia Artificial que planifica itinerarios personalizados.</p>
+      <div class="w-full h-40 bg-neutral-800 rounded-xl overflow-hidden relative">
+         <div class="absolute inset-0 bg-blue-900/20 hover:bg-transparent transition"></div>
+         </div>
+    </BentoItem>
+
+    <BentoItem class="md:col-span-2" title="Stack Tecnológico">
+      <div class="flex flex-wrap gap-3">
+        {["Python", "Django", "Astro", "Tailwind", "React", "TypeScript", "Git"].map((tech) => (
+          <span class="bg-neutral-800 border border-neutral-700 px-4 py-2 rounded-lg text-sm font-medium text-neutral-300 hover:bg-neutral-700 hover:text-white transition cursor-default">
+            {tech}
+          </span>
+        ))}
+      </div>
+    </BentoItem>
+
+  </div>
+</Layout>

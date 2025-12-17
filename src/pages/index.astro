@@ -1,11 +1,14 @@
 ---
+// src/pages/index.astro
 import Layout from '../layouts/BaseLayout.astro';
 import BentoItem from '../components/BentoItem.astro';
+import { Icon } from 'astro-icon/components';
+import { flatStackData } from '../data/techStack';
 ---
 
 <Layout title="Lautaro RB | Portfolio">
   
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[300px]">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[minmax(350px,_auto)]">
     
     <BentoItem class="md:col-span-3 justify-center! gap-4">
       <h1 class="text-4xl md:text-5xl font-bold text-white">
@@ -15,33 +18,45 @@ import BentoItem from '../components/BentoItem.astro';
         Desarrollador de Software enfocado en crear soluciones web rápidas, funcionales y atractivas. 
       </p>
       <div class="flex gap-4 mt-4">
-        <button class="bg-blue-600 px-6 py-2 rounded-full font-medium hover:bg-blue-700 transition hover:scale-105">Contactame</button>
-        <button class="bg-neutral-800 px-6 py-2 rounded-full font-medium hover:bg-neutral-700 transition border border-neutral-700 hover:scale-105">Descargar CV</button>
+        <a href="mailto:tuemail@ejemplo.com" class="bg-blue-600 px-6 py-2 rounded-full font-medium hover:bg-blue-700 transition hover:scale-105 inline-flex items-center justify-center">Contactame</a>
+        <a href="/tu-cv.pdf" target="_blank" class="bg-neutral-800 px-6 py-2 rounded-full font-medium hover:bg-neutral-700 transition border border-neutral-700 hover:scale-105 inline-flex items-center justify-center">Descargar CV</a>
       </div>
     </BentoItem>
 
     <BentoItem class="md:col-span-1 flex items-center justify-center">
-      <div class="w-full h-full bg-linear-to-br from-blue-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center overflow-hidden">
+      <div class="w-full h-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center overflow-hidden">
         <span class="text-neutral-500 font-bold">FOTO</span>
       </div>
     </BentoItem>
 
     <BentoItem class="md:col-span-2" title="TravelIA">
       <p class="text-neutral-400 mb-4">App de viajes con Inteligencia Artificial que planifica itinerarios personalizados.</p>
-      <div class="w-full h-40 bg-neutral-800 rounded-xl overflow-hidden relative">
-         <div class="absolute inset-0 bg-blue-900/20 hover:bg-transparent transition"></div>
-         </div>
+      <div class="w-full h-48 bg-neutral-800 rounded-xl overflow-hidden relative group/image">
+         <div class="absolute inset-0 bg-blue-900/20 group-hover/image:bg-transparent transition duration-300"></div>
+      </div>
     </BentoItem>
 
     <BentoItem class="md:col-span-2" title="Stack Tecnológico">
-      <div class="flex flex-wrap gap-3">
-        {["Python", "Django", "Astro", "Tailwind", "React", "TypeScript", "Git"].map((tech) => (
-          <span class="bg-neutral-800 border border-neutral-700 px-4 py-2 rounded-lg text-sm font-medium text-neutral-300 hover:bg-neutral-700 hover:text-white transition cursor-default">
-            {tech}
-          </span>
+      
+      <div class="grid grid-cols-4 sm:grid-cols-5 gap-3">
+        {flatStackData.map((tech) => (
+          <div 
+            class="bg-neutral-800/50 border border-neutral-700/50 p-3 rounded-xl hover:bg-neutral-800 hover:border-neutral-600 transition-all duration-300 group/icon relative flex items-center justify-center aspect-square"
+            title={tech.name} 
+          >
+            <Icon 
+              name={tech.icon} 
+              class="size-8 transition-transform duration-300 group-hover/icon:scale-110"
+              style={{ color: tech.color }}
+            />
+          </div>
         ))}
       </div>
+
     </BentoItem>
+
+  </div>
+</Layout>
 
   </div>
 </Layout>

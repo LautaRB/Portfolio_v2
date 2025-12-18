@@ -18,18 +18,15 @@ importers:
         specifier: ^4.1.18
         version: 4.1.18
     devDependencies:
-<<<<<<< HEAD
       '@iconify-json/lucide':
         specifier: ^1.2.81
         version: 1.2.81
-=======
       '@iconify-json/simple-icons':
         specifier: ^1.2.63
         version: 1.2.63
       astro-icon:
         specifier: ^1.1.5
         version: 1.1.5
->>>>>>> 2890fadd914bfecfe9aaf41540f78591a0055a97
 
 packages:
 
@@ -236,26 +233,21 @@ packages:
     cpu: [x64]
     os: [win32]
 
-<<<<<<< HEAD
   '@iconify-json/lucide@1.2.81':
     resolution: {integrity: sha512-6Kz/+SEuD5bkg0KImi0yFem9l6njKp4e1qF1LpQbgRfk7ngsJR/qjlB4y5rM8N1iKiDR/p19cqhmwZxyCWek+w==}
-=======
+
   '@iconify-json/simple-icons@1.2.63':
     resolution: {integrity: sha512-xZl2UWCwE58VlqZ+pDPmaUhE2tq8MVSTJRr4/9nzzHlDdjJ0Ud1VxNXPrwTSgESKY29iCQw3S0r2nJTSNNngHw==}
 
   '@iconify/tools@4.2.0':
     resolution: {integrity: sha512-WRxPva/ipxYkqZd1+CkEAQmd86dQmrwH0vwK89gmp2Kh2WyyVw57XbPng0NehP3x4V1LzLsXUneP1uMfTMZmUA==}
->>>>>>> 2890fadd914bfecfe9aaf41540f78591a0055a97
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
 
-<<<<<<< HEAD
-=======
   '@iconify/utils@2.3.0':
     resolution: {integrity: sha512-GmQ78prtwYW6EtzXRU1rY+KwOKfz32PD7iJh6Iyqw68GiKuoZ2A6pRtzWONz5VQJbp50mEjXh/7NkumtrAgRKA==}
 
->>>>>>> 2890fadd914bfecfe9aaf41540f78591a0055a97
   '@img/colour@1.0.0':
     resolution: {integrity: sha512-A5P/LfWGFSl6nsckYtjw9da+19jB8hkJ6ACTGcDfEJ0aE+l2n2El7dsVM7UVHZQ9s2lmYMWlrS21YLy2IR1LUw==}
     engines: {node: '>=18'}
@@ -2051,14 +2043,10 @@ snapshots:
   '@esbuild/win32-x64@0.25.12':
     optional: true
 
-<<<<<<< HEAD
   '@iconify-json/lucide@1.2.81':
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify/types@2.0.0': {}
-
-=======
   '@iconify-json/simple-icons@1.2.63':
     dependencies:
       '@iconify/types': 2.0.0
@@ -2092,7 +2080,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
->>>>>>> 2890fadd914bfecfe9aaf41540f78591a0055a97
   '@img/colour@1.0.0':
     optional: true
 

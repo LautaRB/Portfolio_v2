@@ -4,6 +4,37 @@ import BentoItem from "../components/BentoItem.astro";
 import { Icon } from "astro-icon/components";
 import { flatStackData } from "../data/techStack";
 import Snake from "../components/Snake.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+
+const GITHUB_USERNAME = "LautaRB";
+const response = await fetch(
+  `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=pushed&per_page=20`
+);
+const allRepos = await response.json();
+
+interface Repo {
+  name: string;
+  description: string;
+  html_url: string;
+  fork: boolean;
+  language: string;
+  topics: string[];
+}
+
+const projects = Array.isArray(allRepos)
+  ? allRepos
+      .filter((repo: Repo) => !repo.fork && repo.description)
+      .slice(0, 4)
+      .map((repo: Repo) => ({
+        title: repo.name,
+        description: repo.description,
+        link: repo.html_url,
+        tags:
+          repo.topics && repo.topics.length > 0
+            ? repo.topics.slice(0, 3)
+            : [repo.language].filter(Boolean),
+      }))
+  : [];
 ---
 
 <Layout title="Lautaro RB | Portfolio">
@@ -20,12 +51,12 @@ import Snake from "../components/Snake.astro";
       </p>
       <div class="flex gap-4 mt-4">
         <a
-          href="mailto:tuemail@ejemplo.com"
+          href="mailto:lautanbar@gmail.com"
           class="bg-blue-600 px-6 py-2 rounded-full font-medium hover:bg-blue-700 transition hover:scale-105 inline-flex items-center justify-center"
           >Contactame</a
         >
         <a
-          href="/tu-cv.pdf"
+          href="/CV.pdf"
           target="_blank"
           class="bg-neutral-800 px-6 py-2 rounded-full font-medium hover:bg-neutral-700 transition border border-neutral-700 hover:scale-105 inline-flex items-center justify-center"
           >Descargar CV</a
@@ -34,11 +65,21 @@ import Snake from "../components/Snake.astro";
     </BentoItem>
 
     <BentoItem class="md:col-span-1 p-0!" index={1}>
-        <Snake />
+      <Snake />
     </BentoItem>
 
-    <BentoItem>
-      
+    <BentoItem class="md:col-span-2" title="Últimos Proyectos" index={2}>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2 h-full">
+        {
+          projects.length > 0 ? (
+            projects.map((project) => <ProjectCard project={project} />)
+          ) : (
+            <div class="col-span-2 flex items-center justify-center text-neutral-500 text-sm italic">
+              No se pudieron cargar los proyectos de GitHub.
+            </div>
+          )
+        }
+      </div>
     </BentoItem>
 
     <BentoItem class="md:col-span-2" title="Stack Tecnológico" index={3}>
